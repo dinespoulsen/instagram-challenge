@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  # before_action :authenticate_user!, :except => [:index, :show]
   has_many :pictures, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :commented_pictures, through: :comments, source: :picture
-
+  has_many :liked_pictures, through: :likes, source: :picture
 
 
   devise :database_authenticatable, :registerable,
@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   def has_commented?(picture)
     commented_pictures.include? picture
+  end
+
+  def has_liked?(picture)
+    liked_pictures.include? picture
   end
 
   def self.from_omniauth(auth)
