@@ -1,12 +1,18 @@
 class User < ApplicationRecord
   # before_action :authenticate_user!, :except => [:index, :show]
   has_many :pictures, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :commented_pictures, through: :comments, source: :picture
 
 
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
+
+  def has_commented?(picture)
+    commented_pictures.include? picture
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
