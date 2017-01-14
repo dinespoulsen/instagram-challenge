@@ -11,6 +11,7 @@ feature 'pictures' do
 
   context 'when uploading a picture' do
     scenario "can add a picture" do
+      sign_up
       visit('/pictures')
       click_link('Add a picture')
       fill_in("picture[title]", with: "Isabel")
@@ -25,13 +26,10 @@ feature 'pictures' do
 
     before { Picture.create title: 'test', description: 'test', id: 1 }
     scenario 'let a user edit a restaurant' do
-      visit '/pictures'
-      click_link 'Edit test'
-      fill_in 'picture[title]', with: 'test2'
-      fill_in 'picture[description]', with: 'testtest'
-      click_button 'Add picture'
-      expect(page).to have_content 'test2'
-      expect(page).to have_content 'testtest'
+      sign_up
+      add_picture("Isabel", "picture of Isabel")
+      expect(page).to have_content 'Isabel'
+      expect(page).to have_content 'picture of Isabel'
       expect(current_path).to eq '/pictures'
     end
 
