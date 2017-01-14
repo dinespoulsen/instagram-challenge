@@ -1,2 +1,9 @@
+<% if @pictures.any? %>
+  <% @pictures.each do |picture| %>
+    <h2><%= picture.title %>></h2>
+    <hp><%= picture.description %>></h2>
+  <% end %>
+<% else %>
+  <p>No pictures yet</p>
+<% end %>
 <%= link_to "Add a picture", new_picture_path %>
-<p>No pictures yet</p>
