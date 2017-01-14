@@ -1,0 +1,3 @@
+<h2>Title: <%= @picture.title %></h2>
+<%= image_tag @picture.image.url(:medium) if @picture.image?%>
+<hp>Description: <%= @picture.description %></h2><br>

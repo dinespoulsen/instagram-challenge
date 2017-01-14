@@ -1,7 +1,12 @@
 <% if @pictures.any? %>
   <% @pictures.each do |picture| %>
-    <h2><%= picture.title %>></h2>
-    <hp><%= picture.description %>></h2>
+    <div class="image-holder">
+      <h2>Title: <%= link_to picture.title, picture_path(picture) %></h2>
+      <%= image_tag picture.image.url(:medium) if picture.image?%>
+      <hp>Description: <%= picture.description %></h2><br>
+      <%= link_to "Edit #{picture.title}", edit_picture_path(picture)%>
+      <%= link_to "Delete", picture_path(picture), method: "delete" %>
+    </div>
   <% end %>
 <% else %>
   <p>No pictures yet</p>
