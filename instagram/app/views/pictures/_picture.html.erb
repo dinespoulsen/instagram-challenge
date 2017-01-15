@@ -29,13 +29,12 @@
   </ul>
   <%= link_to "Edit #{picture.title}", edit_picture_path(picture)%>
   <%= link_to "Delete", picture_path(picture), method: "delete" %>
-
+    <p>Comments:</p>
     <%= form_for [picture, @comment] do |f| %>
       <%= f.text_field :thoughts %>
       <%= f.submit 'Add comment' %>
     <% end %>
 
-    <p>Comments:</p>
     <% picture.comments.each do |comment| %>
       <p><%= comment.user.email%>:</p>
       <p><%= comment.thoughts %></p>

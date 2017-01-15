@@ -1,4 +1,4 @@
-<%= render partial: "picture", locals: { picture: @picture } %>
+
 
 <div class="tag-form-holder">
   <%= form_for [@picture, @tag] do |f| %>
@@ -6,3 +6,6 @@
     <%= f.submit "Add Tag" %>
   <% end %>
 </div>
+
+
+<%= render partial: "picture", locals: { picture: @picture } %>
