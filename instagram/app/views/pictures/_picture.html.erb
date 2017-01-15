@@ -9,7 +9,7 @@
 
   <div class="tag-holder">
     <% picture.tags.each do |tag| %>
-      <p class="tags"><%= tag.description %><%= link_to "x", tag_path(tag), class: "tag-link" %></p>
+    <p class="tags"><%= tag.description %><%= link_to "x", tag_path(tag), class: "tag-link" %></p>
     <% end %>
   </div>
   <ul>

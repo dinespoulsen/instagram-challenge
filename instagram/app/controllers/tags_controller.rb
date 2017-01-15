@@ -8,8 +8,9 @@ class TagsController < ApplicationController
 
   def destroy
     tag = Tag.find(params[:id])
+    picture = tag.picture
     tag.destroy
-    redirect_to pictures_path
+    render json: {new_tags: picture.tags}
   end
 
   def params_tag
