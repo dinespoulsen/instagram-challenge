@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :commented_pictures, through: :comments, source: :picture
   has_many :liked_pictures, through: :likes, source: :picture
+  has_many :tagged_pictures, through: :tags, source: :picture
 
 
   devise :database_authenticatable, :registerable,

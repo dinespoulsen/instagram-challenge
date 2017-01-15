@@ -16,7 +16,13 @@ class PicturesController < ApplicationController
   end
 
   def edit
-    @picture = Picture.find(params[:id])
+    picture = Picture.find(params[:id])
+    if current_user.id != picture.user.id
+        flash[:notice] = "You do not have edit rights"
+        redirect_to pictures_path
+    else
+      @picture = picture
+    end
   end
 
   def show
@@ -39,5 +45,6 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:title, :description, :image)
   end
+
 
 end
