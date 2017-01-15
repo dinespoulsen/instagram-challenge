@@ -5,7 +5,6 @@ $(document).ready(function() {
 
       var link = this
       var tagHolder = link.parentNode.parentNode;
-      console.log(tagHolder);
 
     $.ajax({
       url: this.href,

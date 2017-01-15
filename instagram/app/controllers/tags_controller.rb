@@ -2,12 +2,22 @@ class TagsController < ApplicationController
 
   def create
     picture = Picture.find(params[:picture_id])
-    tag = Tag.create(params_tag)
-    tagging = Tagging.new
-    tagging.picture = picture
-    tagging.tag = tag
-    tagging.save
-    redirect_to pictures_path
+    tag = Tag.where(description: params[:tag][:description])
+    p tag
+    if tag.any?
+      tagging = Tagging.new
+      tagging.picture = picture
+      tagging.tag = tag.first
+      tagging.save
+      redirect_to pictures_path
+    else
+      tag = Tag.create(params_tag)
+      tagging = Tagging.new
+      tagging.picture = picture
+      tagging.tag = tag
+      tagging.save
+      redirect_to pictures_path
+    end
   end
 
   def destroy

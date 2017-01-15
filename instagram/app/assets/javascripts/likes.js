@@ -6,19 +6,15 @@ $(document).ready(function() {
 
       var likeCount = $(this).siblings('.like-count')[0];
       var link = this
-      console.log(this.href)
 
       if(this.text === "Like") {
         $.post(this.href, function(response){
-          console.log(this)
-          console.log(link.href)
           link.href = "/likes/" + response.like_id;
           link.text = "Unlike"
           likeCount.innerHTML = response.new_like_count;
         })
       }
       else {
-        console.log(link.href);
         $.ajax({
           url: this.href,
           type: 'DELETE',
