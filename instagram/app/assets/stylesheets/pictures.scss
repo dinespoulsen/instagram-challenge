@@ -1,4 +1,29 @@
-.image-holder{
-  max-width: 30%;
+.holder{
+  max-width: 40%;
   margin: auto;
+
+}
+
+.picture-holder {
+  width: 300px;
+  height: 322px;
+  margin: auto;
+
+}
+
+.picture-title a {
+  display: block;
+  padding: 2px 0px 2px 10px;
+  color: white;
+  background: black;
+  text-decoration: none;
+}
+
+.picture-title a:hover {
+  text-decoration: none;
+}
+
+.picture-description {
+  padding: 10px;
+  font-style: italic;
 }

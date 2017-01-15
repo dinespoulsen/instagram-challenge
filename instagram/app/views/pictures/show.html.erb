@@ -1,8 +1,8 @@
-<h2>Title: <%= @picture.title %></h2>
-<%= image_tag @picture.image.url(:medium) if @picture.image?%>
-<p>Description: <%= @picture.description %></p><br>
+<%= render partial: "picture", locals: { picture: @picture } %>
 
-<%= form_for [@picture, @tag] do |f| %>
-  <%= f.text_field :description %>
-  <%= f.submit "Add Tag" %>
-<% end %>
+<div class="tag-form-holder">
+  <%= form_for [@picture, @tag] do |f| %>
+    <%= f.text_field :description %>
+    <%= f.submit "Add Tag" %>
+  <% end %>
+</div>

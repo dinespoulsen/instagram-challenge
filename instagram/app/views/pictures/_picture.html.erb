@@ -1,0 +1,44 @@
+<div class="holder">
+  <h2 class="picture-title"><%= link_to picture.title, picture_path(picture) %></h2>
+  <div class=picture-holder>
+    <%= image_tag picture.image.url(:medium), class: "picture", id: "picture-#{picture.id}" if picture.image?%>
+  </div>
+
+  <p class="picture-by">by: <%= picture.user.email %></p>
+  <p class="picture-description"><%= picture.description %></p>
+
+  <div class="tag-holder">
+    <% picture.tags.each do |tag| %>
+      <p class="tags"><%= tag.description %><%= link_to "x", tag_path(tag), class: "tag-link" %></p>
+    <% end %>
+  </div>
+  <ul>
+
+  <% if current_user %>
+    <% if current_user.has_liked?(picture) %>
+      <li>
+      <%= link_to "Unlike", like_path(find_like_by_user_and_picture(current_user, picture)), class: "like-link"%>
+      <span class="like-count"><%= pluralize(picture.likes.count, "like") if picture.likes.any? %></span>
+    <% else %>
+      <%= link_to "Like", picture_likes_path(picture), class: "like-link" %>
+      <span class="like-count"><%= pluralize(picture.likes.count, "like") if picture.likes.any? %></span>
+      </li>
+    <% end %>
+  <% end %>
+
+  </ul>
+  <%= link_to "Edit #{picture.title}", edit_picture_path(picture)%>
+  <%= link_to "Delete", picture_path(picture), method: "delete" %>
+
+    <%= form_for [picture, @comment] do |f| %>
+      <%= f.text_field :thoughts %>
+      <%= f.submit 'Add comment' %>
+    <% end %>
+
+    <p>Comments:</p>
+    <% picture.comments.each do |comment| %>
+      <p><%= comment.user.email%>:</p>
+      <p><%= comment.thoughts %></p>
+    <% end %>
+
+</div>

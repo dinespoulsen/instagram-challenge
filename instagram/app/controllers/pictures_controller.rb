@@ -27,6 +27,7 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @comment = Comment.new
     @tag = Tag.new
   end
 
