@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     resources :comments
       resources :likes
         resources :tags
+          resources :tagging
   end
+
+  resources :filters
+
 end

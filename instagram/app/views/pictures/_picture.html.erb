@@ -8,8 +8,8 @@
   <p class="picture-description"><%= picture.description %></p>
 
   <div class="tag-holder">
-    <% picture.tags.each do |tag| %>
-    <p class="tags"><%= tag.description %><%= link_to "x", tag_path(tag), class: "tag-link" %></p>
+    <% picture.taggings.each do |tagging| %>
+    <p class="tags"><%= link_to tagging.tag.description, :controller => "filters", :tag => tagging.tag.id %><%= link_to "x", tagging_path(tagging), class: "tag-link" %></p>
     <% end %>
   </div>
   <ul>

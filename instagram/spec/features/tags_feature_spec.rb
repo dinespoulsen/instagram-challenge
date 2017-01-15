@@ -12,14 +12,14 @@ feature 'tagging pictures' do
     expect(page).to have_content('girl')
   end
 
-  scenario "a user can remove a tag" do
+  scenario "a user can remove a tag", js: true do
     sign_up
     add_picture("Isabel", "picture of Isabel")
     visit '/pictures'
     click_link("Isabel")
     fill_in 'tag[description]', with: "girl"
     click_button("Add Tag")
-    click_link("girl")
+    click_link("x")
     expect(page).not_to have_content("girl")
   end
 
