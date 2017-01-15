@@ -2,10 +2,8 @@ class LikesController < ApplicationController
 
   def create
     picture = Picture.find(params[:picture_id])
-    p picture
     like = picture.likes.new(user_id: current_user.id)
     like.save
-    p like
     render json: {new_like_count: picture.likes.count,
                   like_id: like.id,
                   picture_id: picture.id}

@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
-  
+
   def index
     @pictures = Picture.all
     @comment = Comment.new
@@ -21,6 +21,7 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @tag = Tag.new
   end
 
   def update

@@ -4,7 +4,11 @@
       <h2>Title: <%= link_to picture.title, picture_path(picture) %></h2>
       <%= image_tag picture.image.url(:medium), id: "picture-#{picture.id}" if picture.image?%>
       <p>user: <%= picture.user.email %></p>
-      <p>Description: <%= picture.description %></p><br>
+      <p>Description: <%= picture.description %></p>
+
+      <% picture.tags.each do |tag| %>
+        <p><%= tag.description %><%= link_to "x", tag_path(tag), method: "delete" %></p>
+      <% end %>
 
       <ul>
       <% if current_user %>

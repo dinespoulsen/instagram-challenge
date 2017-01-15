@@ -9,6 +9,8 @@ gem 'paperclip'
 gem 'devise'
 gem 'envyable'
 gem 'omniauth-facebook'
+gem 'poltergeist'
+gem 'database_cleaner'
 
 group :test do
   gem 'rspec-rails'
