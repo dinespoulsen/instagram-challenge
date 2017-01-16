@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('.tag-link').on('click', function(event){
+  $(document).on('click', ".tag-link", function(event){
       event.preventDefault();
 
       var link = this
@@ -11,9 +11,10 @@ $(document).ready(function() {
       type: 'DELETE',
       success: function(response) {
         tagHolder.innerHTML = "";
+        var taggings = response.new_taggings;
         var tags = response.new_tags;
-        for (i = 0; i < tags.length; i+= 1) {
-          tagHolder.innerHTML += "<p class='tags'><a href='/filters/tag/" + tags[i].id + "'>" + tags[i].description + "</a><a class='tag-link' href='/tags/" + tags[i].id + "'>x</a></p>";
+        for (i = 0; i < taggings.length; i+= 1) {
+          tagHolder.innerHTML += "<p class='tags'><a href='/filters?tag=" + tags[i].id + "'>" + tags[i].description + "</a><a class='tag-link' href='/tagging/" + taggings[i].id + "'>x</a></p>";
         }
       }
     })

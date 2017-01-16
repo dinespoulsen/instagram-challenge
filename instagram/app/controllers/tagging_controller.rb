@@ -4,7 +4,8 @@ class TaggingController < ApplicationController
     tagging = Tagging.find(params[:id])
     picture = tagging.picture
     tagging.destroy
-    render json: {new_tags: picture.tags}
+    render json: {new_taggings: picture.taggings,
+                  new_tags: picture.tags}
   end
 
 end

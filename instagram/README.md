@@ -1,24 +1,61 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Instagram-challenge
+==================
 
-Things you may want to cover:
+Introduction
+-------
+The Instagram challenge was the 8th weekend challenge at Makers Academy. The idea was to try and build a copy of Instagram with ruby on rails. I used the devise gem to set up my users and integrated Facebook login via the omniauth-facebook gem. I used the paperclip gem to implement picture uploads. I wanted to implement jquery solutions to decrease load time and enhance the user experience. I implemented ajax solutions for when liking and tagging pictures. I further implemented a filter option so that users could filter pictures by tags.
+-------
 
-* Ruby version
+```
+As a user
+So that I can save my pictures
+I want to sign up to Instagram-clone
 
-* System dependencies
+As a user
+So that I can save my pictures
+I want to be able to upload a picture.
 
-* Configuration
+As a user
+So that show my excitement for a picture
+I would like to be able to "like" a picture.
 
-* Database creation
+As a user
+So that organize my pictures
+I would like to be to tag my pictures.
 
-* Database initialization
+As a user
+So that look up pictures
+I would like to be able to filter pictures.
+```
 
-* How to run the test suite
+Installation
+-----
+* Run the command 'bundle install' in the project directory to ensure you have all the gems.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+How to use the applicaton
+-----
 
-* ...
+To run the application start a local rails server and visit http://localhost:3000.
+
+Technologies used
+-----
+* Ruby on Rails
+* Paperclip
+* Jquery/Ajax requests
+* Devise
+* OmniAuth-Facebook
+* ActiveRecord associations
+
+
+Areas to improve
+-----
+* Improving user profile and enabling editing of profile
+* General page layout
+* Filtering by multiple tags
+* page pagination
+
+
+Example
+-----
