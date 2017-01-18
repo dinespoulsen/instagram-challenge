@@ -1,23 +1,62 @@
-Instagram Challenge
-===================
 
-Instructions
+Instagram-challenge
+==================
+
+Introduction
 -------
-* Challenge time: one weekend
-* Feel free to use Google, your notes, books, etc., but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+The Instagram challenge was the 8th weekend challenge at Makers Academy. The idea was to try and build a copy of Instagram with ruby on rails. I used the devise gem to set up my users and integrated Facebook login via the omniauth-facebook gem. I used the paperclip gem to implement picture uploads. I wanted to implement jquery solutions to decrease load time and enhance the user experience. I implemented ajax solutions for when liking and tagging pictures. I further implemented a filter option so that users could filter pictures by tags.
 
-Task
+Example
+-----
+https://insta-challenge-clone.herokuapp.com/
+
+-------
+
+```
+As a user
+So that I can save my pictures
+I want to sign up to Instagram-clone
+
+As a user
+So that I can save my pictures
+I want to be able to upload a picture.
+
+As a user
+So that show my excitement for a picture
+I would like to be able to "like" a picture.
+
+As a user
+So that organize my pictures
+I would like to be to tag my pictures.
+
+As a user
+So that look up pictures
+I would like to be able to filter pictures.
+```
+
+Installation
+-----
+* Run the command 'bundle install' in the project directory to ensure you have all the gems.
+
+
+How to use the applicaton
 -----
 
-Build Instagram: Simple huh!
+To run the application start a local rails server and visit http://localhost:3000.
 
-Bonus if you can write your own set of sensible user stories!
+Technologies used
+-----
+* Ruby on Rails
+* Paperclip
+* Jquery/Ajax requests
+* Devise
+* OmniAuth-Facebook
+* ActiveRecord associations
 
-As usual please start by forking this repo. After cloning your fork and cd'ing into it, you'll need to [initialize a Rails app in the current directory](http://blog.jasonmeridth.com/posts/create-rails-application-in-current-directory/).
 
-Your challenge is to build Instagram using Rails. You'll need **users** who can post **pictures**, write **comments** on pictures and **like** a picture. Style it like Instagram's website (or more awesome).
-
-Bonus if you can add filters!
+Areas to improve
+-----
+* Improving user profile and enabling editing of profile
+* General page layout
+* Filtering by multiple tags
+* page pagination
