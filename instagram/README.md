@@ -5,6 +5,11 @@ Instagram-challenge
 Introduction
 -------
 The Instagram challenge was the 8th weekend challenge at Makers Academy. The idea was to try and build a copy of Instagram with ruby on rails. I used the devise gem to set up my users and integrated Facebook login via the omniauth-facebook gem. I used the paperclip gem to implement picture uploads. I wanted to implement jquery solutions to decrease load time and enhance the user experience. I implemented ajax solutions for when liking and tagging pictures. I further implemented a filter option so that users could filter pictures by tags.
+
+Example
+-----
+https://insta-challenge-clone.herokuapp.com/
+
 -------
 
 ```
@@ -55,7 +60,3 @@ Areas to improve
 * General page layout
 * Filtering by multiple tags
 * page pagination
-
-
-Example
------
